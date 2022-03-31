@@ -1,0 +1,16 @@
+button.button {
+  transition: all 0.5s ease;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button.button:hover {
+  background-color: #eee;
+  color: black;
+}
