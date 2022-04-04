@@ -1,23 +1,15 @@
 import { useState } from "react";
-import useForm from "./hooks/useForm";
-import Input from "./components/Input";
+
 import Card from "./components/Card";
 import Container from "./components/Container";
-import Button from "./components/Button";
+import UserForm from "./components/UserForm";
 import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [form, handleChange, clear] = useForm({
-    name: "",
-    lastName: "",
-    email: "",
-  });
 
-  const submit = (e) => {
-    e.preventDefault();
-    setUsers([...users, form]);
-    clear();
+  const submit = (user) => {
+    setUsers([...users, user]);
   };
 
   return (
@@ -25,30 +17,7 @@ function App() {
       <Container>
         <Card>
           <div style={{ padding: 20 }}>
-            <form onSubmit={submit}>
-              <Input
-                label="name"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Name"
-              />
-              <Input
-                label="Last name"
-                name="lastName"
-                value={form.lastName}
-                onChange={handleChange}
-                placeholder="Last Name"
-              />
-              <Input
-                label="Email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Email"
-              />
-              <Button>send</Button>
-            </form>
+            <UserForm submit={submit} />
           </div>
         </Card>
         <Card>
